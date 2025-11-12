@@ -1,3 +1,5 @@
+from keepalivemindbot import keep_alive
+
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackQueryHandler
@@ -459,6 +461,7 @@ async def remove_member(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(f"❌ {target_user.first_name} was not in the mention list.")
 
 def main():
+    keep_alive
     """Start the bot."""
     # Create the Application
     application = Application.builder().token(BOT_TOKEN).build()
