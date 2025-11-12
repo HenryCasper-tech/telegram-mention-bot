@@ -28,6 +28,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Send a message when the command /help is issued."""
+    logger.info(f"Help command received from {update.message.from_user.id}")
     await update.message.reply_text(
         "📖 *How to use:*\n\n"
         "1. Add me to your group or channel\n"
@@ -461,8 +462,10 @@ async def remove_member(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(f"❌ {target_user.first_name} was not in the mention list.")
 
 def main():
-    keep_alive
     """Start the bot."""
+    # ✅ FIXED: Actually CALL the function with parentheses!
+    keep_alive()
+    
     # Create the Application
     application = Application.builder().token(BOT_TOKEN).build()
 
