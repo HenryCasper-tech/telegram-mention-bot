@@ -1,1 +1,1 @@
-worker: python ultimatemindbot.py
+web: python ultimatemindbot.py
